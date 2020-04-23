@@ -1,0 +1,57 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  @include button-size($btn-padding-x,$btn-padding-y,$btn-font-size,$border-radius);
+  cursor: pointer;
+  transition: $btn-transition;
+  &.disabled,
+  &[disabled]{
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    > * {
+      pointer-events: none;
+    }
+  };
+  &:focus,
+  &.focus {
+    outline: none;
+  }
+}
+
+.btn-large{
+  @include button-size($btn-padding-x-l,$btn-padding-y-l,$btn-font-size-l,$border-radius-l)
+}
+.btn-small{
+  @include button-size($btn-padding-x-s,$btn-padding-y-s,$btn-font-size-s,$border-radius-s)
+}
+
+.btn-primary{
+  @include button-style($pri, $pri, $white)
+}
+.btn-danger{
+  @include button-style($dan, $dan, $white)
+}
+.btn-default{
+  @include button-style($white, $gray-4, $body-color,$white, $pri,$pri)
+}
+.btn-link{
+  font-weight: $font-weight-m;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+  }
+  &.disabled,
+  &[disabled] {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}

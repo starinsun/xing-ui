@@ -1,23 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
+import Button, {ButtonSize, ButtonType} from './components/Button/button'
 
-function App() {
+const App:FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="App" >
+      <header className="App-header" style={{margin:20}}>
+        <Button onClick={()=>{console.log(1)}} className='aas'>this is a</Button>
+        <br/>
+        <Button autoFocus btnType={ButtonType.Primary} size={ButtonSize.Large}>this is a Button</Button>
+        <br/>
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>this is a Button</Button>
+        <br/>
+        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>this is a Button</Button>
+        <br/>
+        <Button disabled size={ButtonSize.Large}>this is a Button</Button>
+        <br/>
+        <Button btnType={ButtonType.Link} href="http://www.baidu.com" target="_blank">Baidu</Button>
+        <Button disabled btnType={ButtonType.Link} href="http://www.baidu.com">Baidu</Button>
       </header>
     </div>
   );
