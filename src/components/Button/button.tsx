@@ -14,11 +14,16 @@ export enum ButtonType {
 }
 
 interface BaseButtonProps {
+  /** 设置class属性 */
   className ?: string,
+  /** 设置按钮禁用 */
   disabled ?: boolean,
+  /** 设置按钮尺寸 */
   size ?: ButtonSize,
+  /** 设置按钮类型 */
   btnType ?: ButtonType,
-  children ?: ReactNode
+  children ?: ReactNode,
+  /** 设置链接按钮 */
   href ?: string
 }
 
@@ -26,7 +31,7 @@ type NativeButtonProps = ButtonHTMLAttributes<HTMLElement> & BaseButtonProps
 type AnchorButtonProps = AnchorHTMLAttributes<HTMLElement> & BaseButtonProps
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button:FC<ButtonProps> = props => {
+export const Button:FC<ButtonProps> = props => {
   const {className,children, disabled,size,btnType, href, ...restProps}  = props
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
@@ -45,4 +50,4 @@ Button.defaultProps = {
   btnType: ButtonType.Default
 }
 
-export default Button
+export default Button;

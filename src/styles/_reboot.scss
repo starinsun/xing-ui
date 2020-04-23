@@ -327,8 +327,10 @@ caption {
 // Matches default `<td>` alignment by inheriting from the `<body>`, or the
 // closest parent with a set `text-align`.
 
-th {
+th,td {
   text-align: inherit;
+  border: 1px solid $gray-4;
+  padding: 5px;
 }
 
 
